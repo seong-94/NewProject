@@ -1,6 +1,8 @@
+import { getMyDate } from "../../../../commons/libraies/utils";
 import * as Style from "./Board_List_styles";
+import { IBoardListUIProps } from "./Board_List_types";
 
-export default function Board_List_Presenter(props) {
+export default function Board_List_Presenter(props: IBoardListUIProps) {
   const date = new Date();
   return (
     <Style.Wrapper>
@@ -13,12 +15,17 @@ export default function Board_List_Presenter(props) {
       </Style.Row>
       {props.data?.fetchBoards.map((el) => (
         <Style.Row key={el._id}>
-          <Style.ColumnBasic>{String(el._id).slice(-4).toUpperCase()}</Style.ColumnBasic>
-          <Style.ColumnTitle id={el._id} onClick={props.onClickMoveToBoardDetail}>
+          <Style.ColumnBasic>
+            {String(el._id).slice(-4).toUpperCase()}
+          </Style.ColumnBasic>
+          <Style.ColumnTitle
+            id={el._id}
+            onClick={props.onClickMoveToBoardDetail}
+          >
             {el.title}
           </Style.ColumnTitle>
           <Style.ColumnBasic>{el.writer}</Style.ColumnBasic>
-          <Style.ColumnBasic>{el.createdAt}</Style.ColumnBasic>
+          <Style.ColumnBasic>{getMyDate(el.createdAt)}</Style.ColumnBasic>
         </Style.Row>
       ))}
       <Style.TableBottom />
