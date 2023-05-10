@@ -2,8 +2,8 @@ import { getMyDate } from "../../../../commons/libraies/utils";
 import * as Style from "./Board_List_styles";
 import { IBoardListUIProps } from "./Board_List_types";
 
-export default function Board_List_Presenter(props: IBoardListUIProps) {
-  const date = new Date();
+export default function BoardListPresenter(props: IBoardListUIProps) {
+
   return (
     <Style.Wrapper>
       <Style.TableTop />

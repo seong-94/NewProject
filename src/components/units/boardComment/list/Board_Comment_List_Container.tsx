@@ -13,7 +13,7 @@ import {
 } from "./Board_Comment_List_Queries";
 import BoardCommentListUI from "./Board_Comment_List_Presenter";
 
-export default function Boar_Comment_List_Container() {
+export default function BoarCommentListContainer() {
   const router = useRouter();
   if (!router || typeof router.query.boardId !== "string") return <></>;
 

@@ -11,7 +11,7 @@ import {
   IUpdateBoardInput,
 } from "../../../../commons/types/generated/types";
 
-export default function Board_write_Container(props: IBoardWriteProps) {
+export default function BoardwriteContainer(props: IBoardWriteProps) {
   const router = useRouter();
 
   const [isActive, setIsActive] = useState(false);

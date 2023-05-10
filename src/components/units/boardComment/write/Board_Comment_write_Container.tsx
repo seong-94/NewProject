@@ -1,4 +1,4 @@
-import { useMutation, useQuery } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
 import { ChangeEvent, useState } from "react";
 import {
@@ -8,7 +8,7 @@ import {
 import { CREATE_BOARD_COMMENT } from "./Board_Comment_write_Queries";
 import { FETCH_BOARD_COMMENTS } from "../list/Board_Comment_List_Queries";
 import BoardCommentWriteUI from "./Board_Comment_write_Presenter";
-export default function Boar_Comment_List_Container() {
+export default function BoarCommentListContainer() {
   const router = useRouter();
   const [writer, SetWriter] = useState("");
   const [password, SetPassword] = useState("");
