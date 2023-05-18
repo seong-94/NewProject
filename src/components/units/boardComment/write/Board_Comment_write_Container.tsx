@@ -1,47 +1,53 @@
 import { useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
-import { ChangeEvent, useState } from "react";
-import {
+import { useState } from "react";
+import type { ChangeEvent } from "react";
+import BoardCommentWriteUI from "./Board_Comment_write_Presenter";
+import { FETCH_BOARD_COMMENTS } from "../list/Board_Comment_List_Queries";
+import { CREATE_BOARD_COMMENT } from "./Board_Comment_write_Queries";
+import type {
   IMutation,
   IMutationCreateBoardCommentArgs,
 } from "../../../../commons/types/generated/types";
-import { CREATE_BOARD_COMMENT } from "./Board_Comment_write_Queries";
-import { FETCH_BOARD_COMMENTS } from "../list/Board_Comment_List_Queries";
-import BoardCommentWriteUI from "./Board_Comment_write_Presenter";
-export default function BoarCommentListContainer() {
+
+export default function BoardCommentWrite(): JSX.Element {
   const router = useRouter();
-  const [writer, SetWriter] = useState("");
-  const [password, SetPassword] = useState("");
-  const [contents, SetContents] = useState("");
+  const [writer, setWriter] = useState("");
+  const [password, setPassword] = useState("");
+  const [contents, setContents] = useState("");
+  const [star, setStar] = useState(0);
 
   const [createBoardComment] = useMutation<
     Pick<IMutation, "createBoardComment">,
     IMutationCreateBoardCommentArgs
   >(CREATE_BOARD_COMMENT);
 
-  const onChangeWriter = (e: ChangeEvent<HTMLInputElement>) => {
-    SetWriter(e.target.value);
-  };
-  const onChangePassword = (e: ChangeEvent<HTMLInputElement>) => {
-    SetPassword(e.target.value);
-  };
-  const onChangeContents = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    SetContents(e.target.value);
+  const onChangeWriter = (event: ChangeEvent<HTMLInputElement>): void => {
+    setWriter(event.target.value);
   };
 
-  const onClickComment = async () => {
+  const onChangePassword = (event: ChangeEvent<HTMLInputElement>): void => {
+    setPassword(event.target.value);
+  };
+
+  const onChangeContents = (event: ChangeEvent<HTMLTextAreaElement>): void => {
+    setContents(event.target.value);
+  };
+
+  const onClickWrite = async (): Promise<void> => {
     try {
       if (typeof router.query.boardId !== "string") {
-        alert("시스템 문제 발생");
+        alert("시스템에 문제가 있습니다.");
         return;
       }
+
       await createBoardComment({
         variables: {
           createBoardCommentInput: {
             writer,
             password,
             contents,
-            rating: 0,
+            rating: star,
           },
           boardId: router.query.boardId,
         },
@@ -53,18 +59,24 @@ export default function BoarCommentListContainer() {
         ],
       });
     } catch (error) {
-      if (error instanceof Error) {
-        alert(error.message);
-      }
+      if (error instanceof Error) alert(error.message);
     }
+
+    setWriter("");
+    setPassword("");
+    setContents("");
   };
+
   return (
     <BoardCommentWriteUI
       onChangeWriter={onChangeWriter}
       onChangePassword={onChangePassword}
       onChangeContents={onChangeContents}
-      onClickComment={onClickComment}
+      onClickWrite={onClickWrite}
+      writer={writer}
+      password={password}
       contents={contents}
+      setStar={setStar}
     />
   );
 }
