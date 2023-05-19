@@ -1,6 +1,6 @@
-import * as S from "./Board_Detail_styles";
+import * as S from "./BoardDetailstyles";
 import { getMyDate } from "../../../../commons/libraies/utils";
-import type { IBoardDetailUIProps } from "./Board_Detail_types";
+import type { IBoardDetailUIProps } from "./BoardDetailtypes";
 import { Tooltip } from "antd";
 
 export default function BoardDetailUI(props: IBoardDetailUIProps): JSX.Element {

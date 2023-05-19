@@ -23,6 +23,12 @@ export default function LayoutBannerPresenter() {
         <div>
           <SliderItem />
         </div>
+        <div>
+          <SliderItem />
+        </div>
+        <div>
+          <SliderItem />
+        </div>
       </Slider>
     </Wrapper>
   );

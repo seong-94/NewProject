@@ -1,9 +1,9 @@
 import { getMyDate } from "../../../../commons/libraies/utils";
-import * as Style from "./Board_List_styles";
-import { IBoardListUIProps } from "./Board_List_types";
+import PaginationContainer from "../../../commons/pagination/PaginationContainer";
+import * as Style from "./BoardListStyles";
+import { IBoardListUIProps } from "./BoardListTypes";
 
 export default function BoardListPresenter(props: IBoardListUIProps) {
-
   return (
     <Style.Wrapper>
       <Style.TableTop />
@@ -30,6 +30,7 @@ export default function BoardListPresenter(props: IBoardListUIProps) {
       ))}
       <Style.TableBottom />
       <Style.Footer>
+        <PaginationContainer refetch={props.refetch} count={props.count} />
         <Style.Button onClick={props.onClickMoveToBoardNew}>
           <Style.PencilIcon src="/images/board/list/write.png" />
           게시물 등록하기

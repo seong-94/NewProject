@@ -1,4 +1,4 @@
-import BoardDetail from "../../../src/components/units/board/detail/Board_Detail_Container";
+import BoardDetail from "../../../src/components/units/board/detail/BoardDetailContainer";
 import Board_Comment_List_Container from "../../../src/components/units/boardComment/list/Board_Comment_List_Container";
 import Board_Comment_write_Container from "../../../src/components/units/boardComment/write/Board_Comment_write_Container";
 

@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
 `;
 
 export const MenuItem = styled.div`
-  margin: 0px auto;
+  margin: 0px 70px;
   cursor: pointer;
 
   :hover {

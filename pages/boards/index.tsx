@@ -1,4 +1,4 @@
-import BoardList from "../../src/components/units/board/list/Board_List_Container";
+import BoardList from "../../src/components/units/board/list/BoardListContainer";
 
 export default function BoardsPage() {
   return <BoardList />;

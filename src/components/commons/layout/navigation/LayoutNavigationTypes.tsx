@@ -1,3 +1,5 @@
+import { MouseEvent } from "react";
+
 export interface ILayoutNavigationProps {
-  onClickMenu: () => void;
+  onClickMenu: (event: MouseEvent<HTMLDivElement>) => void;
 }

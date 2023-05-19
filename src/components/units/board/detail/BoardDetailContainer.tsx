@@ -1,7 +1,7 @@
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import BoardDetailUI from "./Board_Detail_Presenter";
-import { FETCH_BOARD } from "./Board_Detail_Queries";
+import BoardDetailUI from "./BoardDetailPresenter";
+import { FETCH_BOARD } from "./BoardDetailQueries";
 import {
   IQuery,
   IQueryFetchBoardArgs,
