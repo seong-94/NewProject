@@ -18,7 +18,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "src/components/commons/layout/banner/LayoutBannerContainer.tsx"
+    "src/components/commons/layout/banner/LayoutBannerContainer.tsx",
+    "src/components/units/firebaseboard/list/FirebaseListTypes.ts"
   ],
   "exclude": ["node_modules"]
 }
